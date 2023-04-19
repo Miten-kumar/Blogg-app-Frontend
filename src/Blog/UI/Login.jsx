@@ -10,11 +10,12 @@ export default function Login(props) {
 
   const [username, usernameupdate] = useState("");
   const [password, passwordupdate] = useState("");
+  const BaseUrl=process.env.BASE_URL
   let isLoggedIn = null;
   const ProceedLogin = async (e) => {
     e.preventDefault();
     const empdata = { username, password };
-    let result = await fetch("http://localhost:5000/login", {
+    let result = await fetch(`${BaseUrl}/login`, {
       method: "POST",
       headers: {
         "content-type": "application/json"},

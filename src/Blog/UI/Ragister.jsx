@@ -17,6 +17,7 @@ export default function Register() {
     return state.addblogs;
   });
   const navigate = useNavigate();
+  const BaseUrl=process.env.BASE_URL
 
  
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function Register() {
     console.log("wefwde");
     const empdata = { username, email, password, role: "user" };
     console.log(empdata);
-    let result = await fetch("http://localhost:5000/register", {
+    let result = await fetch(`${BaseUrl}/register`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -38,7 +38,7 @@ export default function AddBlog(props) {
     reset()
     setTimeout(() => {
       props.load(reload);
-    }, 100);
+    }, 1000);
   };
   return (
     <>

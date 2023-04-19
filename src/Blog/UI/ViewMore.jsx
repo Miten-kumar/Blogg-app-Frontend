@@ -15,10 +15,11 @@ const Users = () => {
   const [length, setLength] = useState(true);
 
   const params = useParams();
+  const BaseUrl=process.env.BASE_URL
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/getblogs/" + params._id)
+      .get(`${BaseUrl}/getblogs/` + params._id)
       .then((response) => {
         setState([response["data"]]);
         setProgress(100);
@@ -51,7 +52,7 @@ const Users = () => {
               <Card border="info">
                 <Card.Img
                   variant="top"
-                  src={`http://localhost:5000/uploads/${elem.image}`}
+                  src={`${BaseUrl}/uploads/${elem.image}`}
                   alt=""
                   className=""
                   height={"650px"}

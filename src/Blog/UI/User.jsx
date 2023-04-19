@@ -4,9 +4,10 @@ import axios from "axios";
 const Users = (props) => {
   const [state, setState] = useState([]);
   const [reloade, setrelode] = useState(true);
+  const BaseUrl=process.env.BASE_URL
 
   useEffect(() => {
-    axios.get("http://localhost:5000/get").then((response) => {
+    axios.get(`${BaseUrl}/get`).then((response) => {
       setState([...response["data"]]);
     });
   }, [reloade]);

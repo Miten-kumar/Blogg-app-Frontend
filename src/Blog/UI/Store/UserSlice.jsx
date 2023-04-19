@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-const postUrl = "http://localhost:5000/addblogs";
+const BaseUrl=process.env.BASE_URL
+const postUrl = `${BaseUrl}/addblogs`;
 
 export const addData = createAsyncThunk("addblogs", async (blogs) => {
   try {
@@ -20,7 +21,7 @@ export const getData = createAsyncThunk("getblogs", async (data) => {
   // console.log(count);
   try {
     const res = await axios.get(
-      `http://localhost:5000/getblogs?page=${count}&limit=${limit}`,
+      `${BaseUrl}/getblogs?page=${count}&limit=${limit}`,
     );
     return res;
   } catch (err) {
@@ -33,7 +34,7 @@ export const getUserData = createAsyncThunk("getblog", async (data) => {
   // console.log(userId);
   try {
     const res = await axios.get(
-      `http://localhost:5000/getblog/${userId}?page=${count}&limit=${limit}`,
+      `${BaseUrl}/getblog/${userId}?page=${count}&limit=${limit}`,
     
     );
     return res;
@@ -43,7 +44,7 @@ export const getUserData = createAsyncThunk("getblog", async (data) => {
 });
 export const deleteUserData = createAsyncThunk("delete", async (_id) => {
   try {
-    const res = await axios.delete(`http://localhost:5000/delete/${_id}`);
+    const res = await axios.delete(`${BaseUrl}/delete/${_id}`);
     toast.error("Deleted!!!", { autoClose: 200 });
     return res;
   } catch (err) {
@@ -57,7 +58,7 @@ export const updateData = createAsyncThunk("updateblogs", async (item) => {
   try {
     const res = await axios
       .put(
-        `http://localhost:5000/updateblogs/${_id}`,
+        `${BaseUrl}/updateblogs/${_id}`,
         {
           name: name,
           email: email,

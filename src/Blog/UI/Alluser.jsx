@@ -13,11 +13,12 @@ const Users = () => {
   const [state, setState] = useState([]);
   const [reloade, setreload] = useState(true);
   const [progress, setProgress] = useState(70);
+  const BaseUrl=process.env.BASE_URL
 
   const ChangeRole = (props, _id) => {
     if (props.role === "admin") {
       axios
-        .put("http://localhost:5000/update/" + _id, {
+        .put(`${BaseUrl}/update/` + _id, {
           username: props.username,
           password: props.password,
           email: props.email,
@@ -30,7 +31,7 @@ const Users = () => {
         });
     } else {
       axios
-        .put("http://localhost:5000/update/" + _id, {
+        .put(`${BaseUrl}/update/` + _id, {
           username: props.username,
           password: props.password,
           email: props.email,
@@ -47,7 +48,7 @@ const Users = () => {
   useEffect(
     () => {
       window.scrollTo(0, 0);
-      axios.get("http://localhost:5000/get").then((response) => {
+      axios.get(`${BaseUrl}/get`).then((response) => {
         // console.log(response['data']);
         setProgress(100);
         setState([...response["data"]]);

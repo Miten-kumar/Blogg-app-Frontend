@@ -42,6 +42,7 @@ const Myblog = (props) => {
   const [sorted, setSorted] = useState({ sorted: "name", reversed: false });
 
   const dispatch = useDispatch();
+  const BaseUrl=process.env.BASE_URL
 
   const Load = () => {
     setRelode((prev) => !prev);
@@ -54,7 +55,7 @@ const Myblog = (props) => {
     let key = e.target.value;
     if (key) {
       let result = await axios.get(
-        `http://localhost:5000/search/${props.props.userId}/${key}`,
+        `${BaseUrl}/search/${props.props.userId}/${key}`,
       );
       console.log(result);
       if (result) {

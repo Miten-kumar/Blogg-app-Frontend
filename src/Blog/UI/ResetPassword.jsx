@@ -10,6 +10,7 @@ import Alert from "react-bootstrap/Alert";
 const Resetpassword = () => {
   const [password, setPassword] = useState("");
   const [Show, setShow] = useState(false);
+  const BaseUrl=process.env.BASE_URL
 
   const { id, token } = useParams();
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Resetpassword = () => {
     const data = { password: password };
     console.log(data);
     axios
-      .post(`http://localhost:5000/resetPassword/${id}/${token}`, data)
+      .post(`${BaseUrl}/resetPassword/${id}/${token}`, data)
       .then((response) => {
         console.log("response", response)
         

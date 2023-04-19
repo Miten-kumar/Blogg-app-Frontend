@@ -8,13 +8,15 @@ import Alert from "react-bootstrap/Alert";
 const Forgotpassword = () => {
   const [email, setEmail] = useState("");
   const [Show, setShow] = useState(false);
+  const BaseUrl=process.env.BASE_URL
+
   const ForGotPassword = (e) => {
     e.preventDefault();
 
     const data = { email: email };
     console.log(data);
     axios
-      .post("http://localhost:5000/forgotPassword", data)
+      .post(`${BaseUrl}/forgotPassword`, data)
       .then((response) => {
         setShow(!Show);
         console.log("Status: ", response.status);

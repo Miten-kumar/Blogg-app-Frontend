@@ -40,6 +40,8 @@ const DisplayData = (props) => {
   const [limit, setLimit] = useState(3);
   const [pageCount, setPageCount] = useState(1);
   const dispatch = useDispatch();
+  const BaseUrl=process.env.BASE_URL
+
   const sort = (event) => {
     const usersCopy = [...data];
     setDense(event.target.checked);
@@ -62,11 +64,14 @@ const DisplayData = (props) => {
   const Load = () => {
     setRelode((prev) => !prev);
   };
+  const DeleteData = () => {
+    setDelete((prev) => !prev);
+  };
 
   const searchHandle = async (e) => {
     let key = e.target.value;
     if (key) {
-      let result = await axios.get(`http://localhost:5000/searchall/${key}`);
+      let result = await axios.get(`${BaseUrl}/searchall/${key}`);
 
       if (result) {
         setData(result.data);
@@ -104,8 +109,9 @@ const DisplayData = (props) => {
     });
   }
   useEffect(() => {
-    Click();
-  }, [relode, status.delete, ref]);
+   Click()
+  }, [relode, Delete, ref]);
+
   function changeLimit() {
     setPageCount(1);
     Click();
@@ -277,7 +283,7 @@ const DisplayData = (props) => {
                         <RiDeleteBinLine
                           onClick={() => {
                             dispatch(deleteUserData(item._id));
-                            setDelete(!Delete);
+                            DeleteData()
                           }}
                           cursor={"pointer"}
                           fontSize={"25px"}
