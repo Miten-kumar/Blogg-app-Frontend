@@ -3,7 +3,6 @@ import AddBlog from "./AddBlog";
 import Edit from "./Edit";
 import { Form } from "react-bootstrap";
 import { toast } from "react-toastify";
-
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Input } from "@mui/material";
 import LoadingBar from "react-top-loading-bar";

@@ -35,6 +35,7 @@ function App() {
     // console.log(role);
     setuserId(_id);
   };
+  const BaseUrl=process.env.REACT_APP_BASE_URL
 
   const status = (data, user, password) => {
     setisLogged(data);
@@ -77,7 +78,7 @@ function App() {
         const refreshToken = localStorage.getItem("refreshToken");
         console.log(refreshToken);
         axios
-          .post("http://localhost:5000/refreshToken", { Refresh: refreshToken })
+          .post(`${BaseUrl}/refreshToken`, { Refresh: refreshToken })
           .then((res) => {
             // console.log(res);
             axios.defaults.headers.common["authorization"] =
