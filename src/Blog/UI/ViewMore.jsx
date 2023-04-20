@@ -15,7 +15,7 @@ const Users = () => {
   const [length, setLength] = useState(true);
 
   const params = useParams();
-  const BaseUrl=process.env.BASE_URL
+  const BaseUrl=process.env.REACT_APP_BASE_URL
 
   useEffect(() => {
     axios

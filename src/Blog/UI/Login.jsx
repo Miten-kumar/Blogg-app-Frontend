@@ -10,7 +10,7 @@ export default function Login(props) {
 
   const [username, usernameupdate] = useState("");
   const [password, passwordupdate] = useState("");
-  const BaseUrl=process.env.BASE_URL
+  const BaseUrl=process.env.REACT_APP_BASE_URL
   let isLoggedIn = null;
   const ProceedLogin = async (e) => {
     e.preventDefault();

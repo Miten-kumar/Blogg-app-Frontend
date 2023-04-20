@@ -33,7 +33,7 @@ const DisplayData = (props) => {
   const [limit, setLimit] = useState(3);
   const [pageCount, setPageCount] = useState(1);
   const dispatch = useDispatch();
-  const BaseUrl=process.env.BASE_URL
+  const BaseUrl=process.env.REACT_APP_BASE_URL
 
   const Load = () => {
     setRelode((prev) => !prev);

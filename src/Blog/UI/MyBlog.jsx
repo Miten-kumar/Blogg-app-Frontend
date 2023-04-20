@@ -42,7 +42,7 @@ const Myblog = (props) => {
   const [sorted, setSorted] = useState({ sorted: "name", reversed: false });
 
   const dispatch = useDispatch();
-  const BaseUrl=process.env.BASE_URL
+  const BaseUrl=process.env.REACT_APP_BASE_URL
 
   const Load = () => {
     setRelode((prev) => !prev);

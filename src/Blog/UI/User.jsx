@@ -4,7 +4,7 @@ import axios from "axios";
 const Users = (props) => {
   const [state, setState] = useState([]);
   const [reloade, setrelode] = useState(true);
-  const BaseUrl=process.env.BASE_URL
+  const BaseUrl=process.env.REACT_APP_BASE_URL
 
   useEffect(() => {
     axios.get(`${BaseUrl}/get`).then((response) => {

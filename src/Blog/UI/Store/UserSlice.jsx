@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-const BaseUrl=process.env.BASE_URL
+const BaseUrl=process.env.REACT_APP_BASE_URL
 const postUrl = `${BaseUrl}/addblogs`;
 
 export const addData = createAsyncThunk("addblogs", async (blogs) => {

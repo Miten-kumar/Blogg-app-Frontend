@@ -8,7 +8,7 @@ import Alert from "react-bootstrap/Alert";
 const Forgotpassword = () => {
   const [email, setEmail] = useState("");
   const [Show, setShow] = useState(false);
-  const BaseUrl=process.env.BASE_URL
+  const BaseUrl=process.env.REACT_APP_BASE_URL
 
   const ForGotPassword = (e) => {
     e.preventDefault();
